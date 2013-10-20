@@ -113,16 +113,19 @@ def single_post(postTitle):
 	title = postTitle
 	title = os.path.splitext(title)[0] 
 	body = ""
+	date = ""
 	for line in post:
 		if line.startswith("<title>"):
 				title = line[7:]
+		elif line.startswith("<date>"):
+			date = line[6:]
 		else:
 			body += line + "\n"
 
 	print(title)
 	body = markdown2.markdown(body)
 
-	return render_template('single_post.html', title=title, body=body)
+	return render_template('single_post.html', title=title, body=body, date=date)
 
 
 

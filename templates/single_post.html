@@ -1,7 +1,14 @@
 {% extends "layout.html" %}
 {% block body %}
 	<div class="singlePost">
-	   	<h1>{{ title }}</h1>
+	   	<div class="postTitle">
+	   		<h1>{{ title }}</h1>
+	   	</div>
+	   	{% if date != "" %}
+	   		<div class="postDate">
+	   			{{ date }}
+	   		</div>
+	   	{% endif %}
 	   	<div class="postText">{{ body|safe }}</div>	
   	</div>
 {% endblock %}

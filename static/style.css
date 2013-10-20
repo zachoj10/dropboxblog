@@ -119,6 +119,7 @@ h2 {
 .posts {
 	padding: 1em;
 	height: 100%;
+	color: #423F3C;
 
 }
 
@@ -130,7 +131,6 @@ h2 {
 	height: 100%;
 	font-family: 'Patua One';
 	color: #423F3C;
-
 }
 
 .navbar ul {
