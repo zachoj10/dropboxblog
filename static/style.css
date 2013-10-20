@@ -57,11 +57,11 @@ table {
 
 body {
 	font-family: helvetica;
-	background-color: #6f6f6f;
+	background-color: #FFFDFB;
 }
 
 h1 {
-	font-size: 30px;
+	font-size: 48px;
 }
 
 h2 { 
@@ -69,31 +69,103 @@ h2 {
 }
 
 .postlist {
-	padding: 0px 150px;
+	margin: 0 22%;
 	position: relative;
 	top: 40px;
-	background-color: #6f6f6f;
 	height: 100%;
+	font-family: 'Patua One';
+	line-height: 40px;
+	font-size: 30px;
+}
 
+.postTitle{
+	text-align: center;
+}
+
+.titles {
+	list-style-type: disc;
+	padding-top: 1em;
+	margin: 0 10%;
+}
+
+
+.postlist a{
+	color: #423F3C;
 }
 
 .postText {
-	padding: 10px 25px;
-	
+	margin-right: auto;
+	margin-left: auto;
+	text-align: left;
+	padding: 1em 0 1em 0;
+	font-family: 'Merriweather', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height: 25px;
+	color: #423F3C;
+	font-size: 18px;
+}
+
+.postText p{
+	padding-bottom: 1em;
+}
+
+
+.entries li {
+	padding: 1em 0;
+	border-style: solid;
+	border-bottom-width: 1px;
+	border-color: #d0d0d0;
 }
 
 .posts {
-	background-color: #dfdfdf;
-	padding: 5px;
+	padding: 1em;
 	height: 100%;
-	box-shadow: 0 10px  #888888;
+
 }
 
 .singlePost {
-	padding: 0px 150px;
+	padding-top: 1em;
+	margin: 0 22%;
 	position: relative;
 	top: 40px;
-	background-color: #6f6f6f;
 	height: 100%;
+	font-family: 'Patua One';
+	color: #423F3C;
 
+}
+
+.navbar ul {
+list-style-type:none;
+margin: 0;
+padding:0;
+}
+
+.navbar li {
+	float: left;
+}
+
+.navbar a {
+	display: block;
+	width: 75px;
+	text-decoration: none;
+
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;}
+}
+.navbar a:link    {color:#a2a2a2;}
+.navbar a:visited {color:#a2a2a2;}
+.navbar a:hover   {color:#a2a2a2;}
+.navbar a:active  {color:#a2a2a2;}
+
+.postDate {
+	text-align: center;
+	font-size: 14px;
+	color: #A0A0A0;
+	padding: 1em 0 0 0;
+	font-family: 'Merriweather', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }

@@ -1,8 +1,13 @@
 <!doctype html>
 <title>Flaskr</title>
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<link href='http://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
 <div class="navbar">
-	<a href="/"><h1>Zach's Blog</h1></a>
+	<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/post_list">Post List</a></li>
+	</ul>
 </div>	
   {% for message in get_flashed_messages() %}
     <div class=flash>{{ message }}</div>

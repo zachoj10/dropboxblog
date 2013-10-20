@@ -4,7 +4,15 @@
 		<div class="posts">
 	  		<ul class=entries>
 	  		{% for entry in entries %}
-	   			<li><h1><a href={{ entry.url }}>{{ entry.title }}</a></h1><div class="postText">{{ entry.text|safe }}</div></li>	
+	   			<li>
+	   				<div class="postTitle"><h1><a href={{ entry.url }}>{{ entry.title }}</a></h1></div>
+		   			{% if entry.date != "" %}
+		   				<div class="postDate">
+		   					{{ entry.date }}
+		   				</div>
+		   			{% endif %}
+	   				<div class="postText">{{ entry.text|safe }}</div>
+	   			</li>	
 	  		{% else %}
 	   			<li><em>Unbelievable.  No entries here so far</em>
 	  		{% endfor %}

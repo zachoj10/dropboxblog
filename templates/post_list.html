@@ -2,9 +2,10 @@
 {% block body %}
 	<div class="postlist">
 		<div class="posts">
+			<h1>Posts</h1>
 	  		<ul class=titles>
-	  		{% for title in titles %}
-	   			<li><h1>{{ title }}</h1></li>	
+	  		{% for entry in entries %}
+	   			<li><a href={{ entry.fileName }}>{{ entry.title }}</a></li>	
 	  		{% else %}
 	   			<li><em>Unbelievable.  No entries here so far</em>
 	  		{% endfor %}
