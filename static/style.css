@@ -42,17 +42,38 @@ table {
 	border-spacing: 0;
 }
 
-
-
 .navbar {
 	padding: 10px 100px;
 	line-height: 20px;
 	background-color: black;
-	color: gray;
 	overflow: visible;
 	position: fixed;
 	width: 100%;
 	z-index: 1000;
+}
+
+.navbar a:link{
+	color: #a2a2a2;
+	font-size: 100px;
+}
+
+
+.navbar ul {
+list-style-type:none;
+margin: 0;
+padding:0;
+}
+
+.navbar li {
+	float: left;
+}
+
+
+.navbar a {
+	display: block;
+	width: 75px;
+	text-decoration: none;
+	color: #a2a2a2;
 }
 
 body {
@@ -76,6 +97,7 @@ h2 {
 	font-family: 'Patua One';
 	line-height: 40px;
 	font-size: 30px;
+	color: #423F3C;
 }
 
 .postTitle{
@@ -89,10 +111,6 @@ h2 {
 }
 
 
-.postlist a{
-	color: #423F3C;
-}
-
 .postText {
 	margin-right: auto;
 	margin-left: auto;
@@ -102,12 +120,16 @@ h2 {
 	line-height: 25px;
 	color: #423F3C;
 	font-size: 18px;
-}
-
-.postText p{
 	padding-bottom: 1em;
 }
 
+.postDate {
+	text-align: center;
+	font-size: 14px;
+	color: #A0A0A0;
+	padding: 1em 0 0 0;
+	font-family: 'Merriweather', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
 
 .entries li {
 	padding: 1em 0;
@@ -133,23 +155,7 @@ h2 {
 	color: #423F3C;
 }
 
-.navbar ul {
-list-style-type:none;
-margin: 0;
-padding:0;
-}
-
-.navbar li {
-	float: left;
-}
-
-.navbar a {
-	display: block;
-	width: 75px;
-	text-decoration: none;
-
-}
-
+	
 a {
 	text-decoration: none;
 }
@@ -157,15 +163,5 @@ a {
 a:hover {
 	text-decoration: underline;}
 }
-.navbar a:link    {color:#a2a2a2;}
-.navbar a:visited {color:#a2a2a2;}
-.navbar a:hover   {color:#a2a2a2;}
-.navbar a:active  {color:#a2a2a2;}
 
-.postDate {
-	text-align: center;
-	font-size: 14px;
-	color: #A0A0A0;
-	padding: 1em 0 0 0;
-	font-family: 'Merriweather', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
+
