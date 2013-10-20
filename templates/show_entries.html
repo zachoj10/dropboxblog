@@ -1,10 +1,14 @@
 {% extends "layout.html" %}
 {% block body %}
-  <ul class=entries>
-  {% for entry in entries %}
-    <li><h1>{{ entry.title }}</h1>{{ entry.text|safe }}
-  {% else %}
-    <li><em>Unbelievable.  No entries here so far</em>
-  {% endfor %}
-  </ul>
+	<div class="postlist">
+		<div class="posts">
+	  		<ul class=entries>
+	  		{% for entry in entries %}
+	   			<li><h1><a href={{ entry.url }}>{{ entry.title }}</a></h1><div class="postText">{{ entry.text|safe }}</div></li>	
+	  		{% else %}
+	   			<li><em>Unbelievable.  No entries here so far</em>
+	  		{% endfor %}
+	  		</ul>
+	  	</div>
+  	</div>
 {% endblock %}

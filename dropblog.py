@@ -41,7 +41,39 @@ def teardown_request(exception):
 def show_entries():
 	blogPosts = urllib.urlopen('https://dl.dropboxusercontent.com/u/9366248/blog/blogPosts')
 	baseurl = 'https://dl.dropboxusercontent.com/u/9366248/blog/'
-	cur = g.db.execute('select title, text from entries order by id desc')
+	titles = []
+	fileNames = []
+	postText = []
+	postURL = []
+	for line in blogPosts:
+		if not line.startswith('#'):
+			postURL.append(baseurl + line.strip())
+			fileNames.append(line.strip())
+	blogPosts.close()
+	for i in postURL:
+		post = urllib.urlopen(i)
+		result = ""
+		title = i[49:]
+		title = os.path.splitext(title)[0]
+		for line in post:
+			if line.startswith("<title>"):
+				title = line[7:]
+			else:
+				result += line + "\n"
+		titles.append(title)
+		result = markdown2.markdown(result)
+		postText.append(result)
+		post.close()
+
+
+
+	entries = [dict(title=titles[i], text=postText[i], url=fileNames[i]) for i in range(len(titles))]
+	return render_template('show_entries.html', entries=entries)
+
+@app.route('/post_list')
+def show_list():
+	blogPosts = urllib.urlopen('https://dl.dropboxusercontent.com/u/9366248/blog/blogPosts')
+	baseurl = 'https://dl.dropboxusercontent.com/u/9366248/blog/'
 	titles = []
 	postText = []
 	postURL = []
@@ -57,17 +89,29 @@ def show_entries():
 		for line in post:
 			if line.startswith("<title>"):
 				title = line[7:]
-			else:
-				result += line.strip() + "\n"
 		titles.append(title)
-		result = markdown2.markdown(result)
-		postText.append(result)
-	for i in postText:
-		print(i)
+		post.close()
 
+	return render_template('post_list.html', titles=titles)
 
-	entries = [dict(title=titles[i], text=postText[i]) for i in range(len(titles))]
-	return render_template('show_entries.html', entries=entries)
+@app.route('/<postTitle>')
+def single_post(postTitle):
+	baseurl = 'https://dl.dropboxusercontent.com/u/9366248/blog/'
+	post = urllib.urlopen(baseurl + postTitle)
+	title = postTitle
+	title = os.path.splitext(title)[0] 
+	body = ""
+	for line in post:
+		if line.startswith("<title>"):
+				title = line[7:]
+		else:
+			body += line + "\n"
+
+	print(title)
+	body = markdown2.markdown(body)
+
+	return render_template('single_post.html', title=title, body=body)
+
 
 
 if __name__ == '__main__':
