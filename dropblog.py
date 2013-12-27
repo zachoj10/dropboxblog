@@ -122,10 +122,23 @@ def single_post(postTitle):
 		else:
 			body += line + "\n"
 
-	print(title)
 	body = markdown2.markdown(body)
 
 	return render_template('single_post.html', title=title, body=body, date=date)
+
+@app.route('/about')
+def about():
+	url = 'https://dl.dropboxusercontent.com/u/9366248/blog/about.md'
+	content = urllib.urlopen(url)
+	title = "About"
+	body = ""
+	for line in content:
+		body += line + "\n"
+
+	body = markdown2.markdown(body)
+	return render_template('single_post.html', title=title, body=body)
+
+
 
 
 
